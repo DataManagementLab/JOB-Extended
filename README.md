@@ -1,16 +1,21 @@
-# JOB-Extended: A Hard and Realistic Benchmark for Traditional and Learned Query Optimization
+# JOB-Extended: A Challenging Benchmark for Traditional & Learned Query Optimization
 
-Sourcecode of our AIDB '25 paper "JOBExtended: A Hard and Realistic Benchmark for
-Traditional and Learned Query Optimization"
+Sourcecode of our AIDB '25 paper "JOBExtended: A Challenging Benchmark for
+Traditional & Learned Query Optimization"
 
 <p align="center">
   <img src="graphics/optimization_gap.jpg" width="50%">
 </p>
 
 ## Abstract
-Query optimization is a fundamental task in database systems that crucially needs to be solved to provide high performance. In recent years, traditional and learned query optimizers and cost models successfully demonstrated near-optimal performance over standard benchmarks, like JOB or JOB-Light. However, existing benchmarks are inherently limited, as they fail to reflect real-world properties of query optimization. Simple but realistic properties, such as non-primary key columns in join conditions, join over string columns, or complex filter predicates, can drastically reduce the performance of existing query optimizers.
-
-Thus, we introduce **JOB-Extended**, a new benchmark designed to be more realistic and challenging for query optimizers by reflecting real-world complexity. Overall, JOB-Extended contains 30 SQL queries and moreover comes with 5131 picked execution plans, making it a valuable resource to evaluate the performance of query optimizers and cost models in real-world scenarios. Our evaluation shows that traditional and learned optimizers still struggle to achieve high performance on JOB-Extended, providing a runtime of up to 100x slower compared to the optimal plan.
+Query optimization is a fundamental task in database systems that is crucial to providing high performance.
+%In recent years, traditional and learned query optimizers and cost models successfully demonstrated near-optimal performance over standard benchmarks, like JOB or JOB-Light.
+To exercise learned and traditional optimizer's performance, several benchmarks, such as the widely used JOB benchmark, are used.
+However, in this paper, we argue that existing benchmarks are inherently limited, as they do not reflect many real-world properties of query optimization, thus overstating the performance of both traditional and learned optimizers.
+In fact, simple but realistic properties, such as joins over string columns or complex filter predicates, can drastically reduce the performance of existing query optimizers.
+Thus, we introduce **JOB-Extended**, a new benchmark designed to challenge traditional and learned query optimizers by reflecting real-world complexity.
+Overall, JOB-Extended contains 30 SQL queries and comes together with a plan-selection benchmark containing nearly 6000 picked execution plans, making it a valuable resource to evaluate the performance of query optimizers and cost models in real-world scenarios.
+In our evaluation, we show that traditional and learned cost models struggle to achieve high performance on JOB-Extended, providing a runtime of up to 11x slower compared to the optimal plans.
 
 ## Citation
 
@@ -73,7 +78,7 @@ AND ... -- (other join conditions)
 2. We make **JOB-Extended** publicly available (TODO: Add GitHub link here) to foster future research and development in query optimization, encouraging the community to address these identified challenges.
 
 # Download Plan-Selection Dataset
-You can download the plan selection datasets for JOBExtended, JOB and JOB-light from [here](https://osf.io/z6v95/?view_only=46f1fbb4da7d4bc986c838e394865e56).
+You can download the plan selection datasets for JOBExtended, JOB and JOB-light from [here](https://osf.io/53de6/?view_only=f304ebe762f34f65a3ce591340b89818).
 They include tens of thousands of plans for the different benchmarks.
 All plans are in the format of the PostgreSQL 'EXPLAIN (ANALYZE, VERBOSE, FORMAT JSON)' command.
 Further these datasets include in addition also query plans which timed out.
